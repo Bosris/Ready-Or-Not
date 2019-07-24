@@ -1,118 +1,277 @@
-// Variable decleration
-let numberOfPlayersLeft = 8;
-let isPlayerAlive = false;
+// Variable declarations
+let numberOfPlayersLeftAlive = 8;
+let isThePlayerAlive = false;
+let max = 8;
 
-// Hiding Spots
-let hidingSpots = [
-  { spot: 'Fridge', spotOpen: true },
-  { spot: 'Hall Closet', spotOpen: true },
-  { spot: 'Bathroom', spotOpen: true },
-  { spot: 'Dining Area', spotOpen: true },
-  { spot: 'Living Room', spotOpen: true },
-  { spot: 'Dresser', spotOpen: true },
-  { spot: 'Garage', spotOpen: true },
-  { spot: 'Basement', spotOpen: true }
+// Hiding Spots array
+let hidingSpotsArray = [
+  {
+    spotName: 'Fridge', isSpotOpen: true, didSomeOneDieHere: false,
+    resetObj() {
+      this.isSpotOpen = true;
+      this.didSomeOneDieHere = false;
+    },
+    closeHidingSpot() {
+      this.isSpotOpen = false
+    }
+  },
+  {
+    spotName: 'Hall Closet', isSpotOpen: true, didSomeOneDieHere: false,
+    resetObj() {
+      this.isSpotOpen = true;
+      this.didSomeOneDieHere = false;
+    },
+    closeHidingSpot() {
+      this.isSpotOpen = false
+    }
+  },
+  {
+    spotName: 'Bathroom', isSpotOpen: true, didSomeOneDieHere: false,
+    resetObj() {
+      this.isSpotOpen = true;
+      this.didSomeOneDieHere = false;
+    },
+    closeHidingSpot() {
+      this.isSpotOpen = false
+    }
+  },
+  {
+    spotName: 'Dining Area', isSpotOpen: true, didSomeOneDieHere: false,
+    resetObj() {
+      this.isSpotOpen = true;
+      this.didSomeOneDieHere = false;
+    },
+    closeHidingSpot() {
+      this.isSpotOpen = false
+    }
+  },
+  {
+    spotName: 'Living Room', isSpotOpen: true, didSomeOneDieHere: false,
+    resetObj() {
+      this.isSpotOpen = true;
+      this.didSomeOneDieHere = false;
+    },
+    closeHidingSpot() {
+      this.isSpotOpen = false
+    }
+  },
+  {
+    spotName: 'Dresser', isSpotOpen: true, didSomeOneDieHere: false,
+    resetObj() {
+      this.isSpotOpen = true;
+      this.didSomeOneDieHere = false;
+    },
+    closeHidingSpot() {
+      this.isSpotOpen = false
+    }
+  },
+  {
+    spotName: 'Garage', isSpotOpen: true, didSomeOneDieHere: false,
+    resetObj() {
+      this.isSpotOpen = true;
+      this.didSomeOneDieHere = false;
+    },
+    closeHidingSpot() {
+      this.isSpotOpen = false
+    }
+  },
+  {
+    spotName: 'Basement', isSpotOpen: true, didSomeOneDieHere: false,
+    resetObj() {
+      this.isSpotOpen = true;
+      this.didSomeOneDieHere = false;
+    },
+    closeHidingSpot() {
+      this.isSpotOpen = false
+    }
+  }
 ];
 
-// Characters
-let characterArray = [
-  { isAlive: true, name: 'John', hidingSpot: 9 },
-  { isAlive: true, name: 'Dave', hidingSpot: 9 },
-  { isAlive: true, name: 'Hannah', hidingSpot: 9 },
-  { isAlive: true, name: 'Sarah', hidingSpot: 9 },
-  { isAlive: true, name: 'Bob', hidingSpot: 9 },
-  { isAlive: true, name: 'Steve', hidingSpot: 9 },
-  { isAlive: true, name: 'Emma', hidingSpot: 9 }
+// NPC array
+let npcArray = [
+  {
+    name: 'John', hidingSpot: undefined,
+    resetObj() {
+      this.hidingSpot = undefined
+    }
+  },
+  {
+    name: 'Dave', hidingSpot: undefined,
+    resetObj() {
+      this.hidingSpot = undefined
+    }
+  },
+  {
+    name: 'Hannah', hidingSpot: undefined,
+    resetObj() {
+      this.hidingSpot = undefined
+    }
+  },
+  {
+    name: 'Sarah', hidingSpot: undefined,
+    resetObj() {
+      this.hidingSpot = undefined
+    }
+  },
+  {
+    name: 'Bob', hidingSpot: undefined,
+    resetObj() {
+      this.hidingSpot = undefined
+    }
+  },
+  {
+    name: 'Steve', hidingSpot: undefined,
+    resetObj() {
+      this.hidingSpot = undefined
+    }
+  },
+  {
+    name: 'Emma', hidingSpot: undefined,
+    resetObj() {
+      this.hidingSpot = undefined
+    }
+  }
 ];
 
+// Game reset function
 let gameReset = () => {
-  numberOfPlayersLeft = 8;
-  isPlayerAlive = false;
-  round = 1;
-  hidingSpots = [
-    { spot: 'Fridge', spotOpen: true },
-    { spot: 'Hall Closet', spotOpen: true },
-    { spot: 'Bathroom', spotOpen: true },
-    { spot: 'Dining Area', spotOpen: true },
-    { spot: 'Living Room', spotOpen: true },
-    { spot: 'Dresser', spotOpen: true },
-    { spot: 'Garage', spotOpen: true },
-    { spot: 'Basement', spotOpen: true }
-  ];
-  characterArray = [
-    { isAlive: true, name: 'John', hidingSpot: 10 },
-    { isAlive: true, name: 'Dave', hidingSpot: 10 },
-    { isAlive: true, name: 'Hannah', hidingSpot: 10 },
-    { isAlive: true, name: 'Sarah', hidingSpot: 10 },
-    { isAlive: true, name: 'Bob', hidingSpot: 10 },
-    { isAlive: true, name: 'Steve', hidingSpot: 10 },
-    { isAlive: true, name: 'Emma', hidingSpot: 10 }
-  ];
+  numberOfPlayersLeftAlive = 8;
+  isThePlayerAlive = false;
+  currentRound = 1;
+
+  hidingSpotsArray.forEach((obj) => {
+    obj.resetObj();
+  });
+
+  npcArray = [
+    {
+      name: 'John', hidingSpot: undefined,
+      resetObj() {
+        this.hidingSpot = undefined
+      }
+    },
+    {
+      name: 'Dave', hidingSpot: undefined,
+      resetObj() {
+        this.hidingSpot = undefined
+      }
+    },
+    {
+      name: 'Hannah', hidingSpot: undefined,
+      resetObj() {
+        this.hidingSpot = undefined
+      }
+    },
+    {
+      name: 'Sarah', hidingSpot: undefined,
+      resetObj() {
+        this.hidingSpot = undefined
+      }
+    },
+    {
+      name: 'Bob', hidingSpot: undefined,
+      resetObj() {
+        this.hidingSpot = undefined
+      }
+    },
+    {
+      name: 'Steve', hidingSpot: undefined,
+      resetObj() {
+        this.hidingSpot = undefined
+      }
+    },
+    {
+      name: 'Emma', hidingSpot: undefined,
+      resetObj() {
+        this.hidingSpot = undefined
+      }
+    }
+  ]
 }
 
-// Game Loop
+// Game start function
 let gameStart = () => {
-  isPlayerAlive = true;
-  let round = 1;
-  while (isPlayerAlive === true && round < 8) {
-    if (isPlayerAlive === true) {
-      // Letting you know what round it is
-      alert(`Round ${round}!`);
+  isThePlayerAlive = true;
+  let currentRound = 1;
+  let playersChosenHidingSpot;
+  let pickedSpot;
+  let randomNum;
 
-      // Player picking their hiding spot
-      let playersHidingSpot = Number(prompt('Where shall you hide!?', `${round}`));
-      if (typeof playersHidingSpot === 'number' && (playersHidingSpot > 0 && playersHidingSpot <= numberOfPlayersLeft)) {
-        if (hidingSpots[playersHidingSpot - 1].spotOpen === true) {
-          alert(`So, you decided to hide in the ${hidingSpots[playersHidingSpot - 1].spot}?`)
-        } else {
-          while (hidingSpots[playersHidingSpot - 1].spotOpen === false) {
-            alert(`You don't want to hide in the ${hidingSpots[playersHidingSpot - 1].spot}! It's covered in blood! Please pick a different spot!`);
-            playersHidingSpot = Number(prompt('Where shall you hide!?', `${round}`));
-          }
-        }
-      }
+  // Game loop
+  while (isThePlayerAlive === true && numberOfPlayersLeftAlive > 1) {
+    // State what round it is at the start of the round
+    alert(`Round ${currentRound}!`);
 
-      // The characters being assisgned their hiding spots
-      for (let i = 0; i < characterArray.length; i++) {
-        if (characterArray[i].isAlive === true) {
-          let randomSpot = 0;
-          while (characterArray[i].hidingSpot === 10) {
-            randomSpot = Math.floor(Math.random() * numberOfPlayersLeft);
-            if (hidingSpots[randomSpot].spotOpen === true) {
-              characterArray[i].hidingSpot = randomSpot;
-              alert(`${characterArray[i].name} decided to hide in the ${hidingSpots[randomSpot].spot}!`);
-              hidingSpots[randomSpot].spotOpen = false;
-            }
-          }
-        }
-      }
-
-      // Murder picks which spot to look in
-      alert('The murder is deciding where to look!!');
-      let murdersSpotToLook = Math.floor(Math.random() * numberOfPlayersLeft);
-      if (murdersSpotToLook === playersHidingSpot) {
-        alert(`Oh no! You were murdered!`);
-        isPlayerAlive = false;
+    // Player picks their spot every round
+    while (playersChosenHidingSpot === undefined) {
+      pickedSpot = Number(prompt('Where are you going to hide!?', `${currentRound}`)) - 1;
+      if (!hidingSpotsArray[pickedSpot].isSpotOpen) {
+        alert(`Someone was murdered in the ${hidingSpotsArray[pickedSpot].spotName}! Please pick another spot!`);
       } else {
-        for (let j = 0; j < characterArray.length; j++) {
-          if (murdersSpotToLook === characterArray[j].hidingSpot) {
-            alert(`Oh no!! ${characterArray[j].name} was murdered!`);
-            alert(`Looks like you cannot hide at the ${hidingSpots[characterArray[j].hidingSpot].spot} anymore...`);
-            hidingSpots[characterArray[j].hidingSpot].spotOpen = false;
-            characterArray[j].isAlive = false;
-            numberOfPlayersLeft--;
-          }
+        playersChosenHidingSpot = pickedSpot;
+        alert(`So, you decided to hide in the ${hidingSpotsArray[playersChosenHidingSpot].spotName}? I hope you make it!`);
+        hidingSpotsArray[playersChosenHidingSpot].closeHidingSpot();
+      }
+    }
+
+    // NPCs are assigned their hiding spots each round
+    for (let i = 0; i < npcArray.length; i++) {
+      while (npcArray[i].hidingSpot === undefined) {
+        randomNum = Math.floor(Math.random() * max);
+        if (hidingSpotsArray[randomNum].isSpotOpen) {
+          npcArray[i].hidingSpot = randomNum;
+          hidingSpotsArray[randomNum].closeHidingSpot();
+          alert(`${npcArray[i].name} chose to hide in the ${hidingSpotsArray[randomNum].spotName}!`);
         }
       }
-      round++;
-    } else if (numberOfPlayersLeft === 1 && isPlayerAlive === true) {
-      alert('You survived!!');
-      break;
-      gameReset();
-    } else {
-      break;
-      alert('GAME OVER');
-      gameReset();
     }
+
+    // The murder is assigned a spot to look in each round
+    alert(`The murder is deciding where to look!!`);
+    let murdersSpotToLookIn = Math.floor(Math.random() * numberOfPlayersLeftAlive);
+
+    // Check who is in the spot each round
+    if (murdersSpotToLookIn === playersChosenHidingSpot) {
+      alert(`Oh no! You were murdered!!`);
+      isThePlayerAlive = false;
+    } else {
+      for (let j = 0; j < npcArray.length; j++) {
+        if (murdersSpotToLookIn === npcArray[j].hidingSpot) {
+          alert(`Oh no!! ${npcArray[j].name} was murdered!!`);
+          hidingSpotsArray[murdersSpotToLookIn].closeHidingSpot();
+          hidingSpotsArray[murdersSpotToLookIn].didSomeOneDieHere = true;
+          alert(`Since ${npcArray[j].name} was murdered in the ${hidingSpotsArray[murdersSpotToLookIn].spotName}, it is now unavailable to hide in... Due to the mess...`);
+          numberOfPlayersLeftAlive--;
+          npcArray.splice(j, 1);
+        }
+      }
+    }
+
+    // Resets the NPCs hiding spot after each round
+    for (let k = 0; k < npcArray.length; k++) {
+      npcArray[k].resetObj();
+    }
+
+    // Resests the players hiding spot
+    playersChosenHidingSpot = undefined;
+
+    // Set up the hidingSpotsArray for the next Round
+    for (let l = 0; l < hidingSpotsArray.length; l++) {
+      if (!hidingSpotsArray[l].didSomeOneDieHere) {
+        hidingSpotsArray[l].isSpotOpen = true;
+      }
+    }
+
+    // Increases the round counter
+    currentRound++;
+  }
+
+  // End game conditions
+  if (numberOfPlayersLeftAlive = 1 && isThePlayerAlive) {
+    alert(`You survived! Congrats!!`);
+    gameReset();
+  } else if (!isThePlayerAlive) {
+    alert('GAME OVER...');
+    gameReset();
   }
 }

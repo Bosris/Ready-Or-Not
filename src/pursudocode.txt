@@ -1,0 +1,44 @@
+// Variable declaration
+
+// Hiding Spot array
+  // This array will contain the Spot objects
+    // Each object will contain:
+      // The spots name
+      // If the spot is open or not
+
+// NPC array
+  // This array will contain the character objects
+    // Each object will contain:
+     // If the character is alive or not
+     // Their name
+     // Their hiding spot
+
+// Game reset function
+  // Makes all the hiding spots open
+  // Makes all the NPCs alive again
+  // Resets the NPCs hiding Spots
+  // Sets the round back to 1
+
+// Game start function
+  // Game loop, while the player is alive is the condition
+    // Say what round it is
+    // The player picks their hiding place first
+      // If the hiding spot that is picked is not available
+        // Have the player pick again
+    // The NPCs are assigned their spots randomly
+      // If the spot picked is not available
+        // Pick again until an open spot is picked
+    // The murder is assigned a place to look
+      // If the spot the murder looks is where the player picked
+        // Set the player to dead to exit the loop
+      // If the spot the murder looks is where an NPC is
+        // Set the hiding spot to unavailable
+        // Set the NPC to dead
+        // Decrease the number of players alive by 1
+    // Increase the round by 1
+  // If the player is and the number of players left equals 1
+   // Congratulate the player for winning!
+   // Reset the game
+  // If the player dies
+    // Say game OVER
+    // reset the game
