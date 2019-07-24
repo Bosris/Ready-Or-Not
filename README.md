@@ -1,11 +1,12 @@
 # Ready-Or-Not
 A simple game
 
-This is a place to practice my HTML and JS code.
+I just started my 18 week program at Hack Reactor (7/23/19) and thought Id use this as a way to improve my skills as a coder and challenge myself.
 
-The goals for this game:
+Id like to use this as a way to see my growth and progression through the program and as a way to apply what I learn to something outside of school.
+As I learn new things I will update and improve this very basic game as I go.
 
-There are a fixed number of players.
-Each player picks a hiding spot.
-One each player has their spot, the murder then randomly picks a spot and kills the person hiding in that spot.
-Your goal is to be the last one alive.
+7/24/19 - Second day of the program and I was able to get the game to work as intended by the use of browser prompts.
+- Goals moving forward. Learn more HTML and CSS to make the browser more pleasant and interactive.
+- Make the browser have a list of NPC's and hiding spots at updates as the game progresses
+- Make improvements to the JS Code as I improve as a programmer.
