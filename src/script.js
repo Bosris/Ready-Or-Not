@@ -38,20 +38,22 @@ const npcAssignment = () => {
 }
 
 // Murder Spot assignment function
-const murderAssignment = () {
+const murderAssignment = () => {
    alert(`The murder is deciding where to look!!`);
    let murdersSpotToLookIn = Math.floor(Math.random() * hidingSpotsArray.length);
    if (murdersSpotToLookIn === playersChosenHidingSpot) {
       alert(`Oh no! You were murdered!!`);
       isThePlayerAlive = false;
    } else {
-      for (murdersSpotToLookIn === npcArray[j].hidingSpot) {
-         alert(`Oh no!! ${npcArray[j].name} was murdered!!`);
-         hidingSpotsArray[murdersSpotToLookIn].closeHidingSpot();
-         hidingSpotsArray[murdersSpotToLookIn].didSomeOneDieHere = true;
-         alert(`Since ${npcArray[j].name} was murdered in the ${hidingSpotsArray[murdersSpotToLookIn].spotName}, it is now unavailable to hide in... Due to the mess...`);
-         numberOfPlayersLeftAlive--;
-         npcArray.splice(j, 1);
+      for (let i = 0; i < npcArray.length; i++) {
+         if (murdersSpotToLookIn === npcArray[i].hidingSpot) {
+            alert(`Oh no!! ${npcArray[i].name} was murdered!!`);
+            hidingSpotsArray[murdersSpotToLookIn].closeHidingSpot();
+            hidingSpotsArray[murdersSpotToLookIn].didSomeOneDieHere = true;
+            alert(`Since ${npcArray[i].name} was murdered in the ${hidingSpotsArray[murdersSpotToLookIn].spotName}, it is now unavailable to hide in... Due to the mess...`);
+            numberOfPlayersLeftAlive--;
+            npcArray.splice(i, 1);
+         }
       }
    }
 }
