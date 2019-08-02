@@ -6,9 +6,6 @@
   	  <meta name="viewport" content="width=device-width">
   	  <title>Ready or Not!</title>
   	  <link href="src\style.css" rel="stylesheet" type="text/css" />
-     <script src="src\script.js"></script>
-     <script src="src\hidingSpotsArray.js"></script>
-     <script src="src\npcArray.js"></script>
   </head>
 
   <body>
@@ -23,8 +20,12 @@
     <p>Dresser</p>
     <p>Garage</p>
     <p>Basement</p>
+    <button onclick="gameStart()">Start Game</button>
+    <button onclick="gameReset()">Restart Game</button>
+    <script type="module" src="src\script.js"></script>
+    <script type="module" src="src\hidingSpotsArray.js"></script>
+    <script type="module" src="src\npcArray.js"></script>
 
   </body>
-  <button onclick="gameStart()">Start Game</button>
-  <button onclick="gameReset()">Restart Game</button>
+
 </html>

@@ -1,7 +1,4 @@
-export default hidingSpotsArray
-
-// Hiding Spots Array
-let hidingSpotsArray = [
+export const hidingSpotsArray = [
   {
     spotName: 'Fridge', isSpotOpen: true, didSomeOneDieHere: false,
     resetObj() {

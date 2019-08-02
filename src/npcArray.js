@@ -1,7 +1,4 @@
-export default npcArray
-
-// NPC array
-const npcArray = [
+export const npcArray = [
   {
     name: 'John', hidingSpot: undefined,
     resetObj() {
